@@ -10,9 +10,9 @@ const exerciseSchema = new Schema({
     date: { type: Date, required: true },
 },
     {
-        timestamp: true,
+        timestamp: true
 });
 
 const Excercise = mongoose.model('Excercise', exerciseSchema);
 
-model.exports = Excercise;
+module.exports = Excercise;
