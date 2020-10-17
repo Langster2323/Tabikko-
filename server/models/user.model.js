@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new userSchema({
+const userSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -10,6 +10,7 @@ const userSchema = new userSchema({
         trim: true,
         minlength: 3
     },
+}, {
     timestamps: true
 });
 

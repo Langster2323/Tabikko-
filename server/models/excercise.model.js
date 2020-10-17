@@ -8,7 +8,9 @@ const exerciseSchema = new Schema({
     description: { type: String, required: true },
     duration: { type: Number, required: true },
     date: { type: Date, required: true },
-    timestamp: true,
+},
+    {
+        timestamp: true,
 });
 
 const Excercise = mongoose.model('Excercise', exerciseSchema);
