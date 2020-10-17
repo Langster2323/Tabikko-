@@ -15,7 +15,6 @@ app.use(logger('dev'));
 //Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/', home)
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true });
@@ -28,7 +27,7 @@ connection.once('open', () => {
 const excerciseRouter = require('./routes/excercise');
 const userRouter = require('./routes/user');
 
-app.use('/excercises', excerciseRouter)
+app.use('/excercises', excerciseRouter);
 app.use('/users', userRouter);
 
 app.listen(port, () => {console.log(`Port is running on ${port}`);})
