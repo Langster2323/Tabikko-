@@ -15,7 +15,7 @@ export default class CreateExercises extends Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:9000/users/').then(response => {
+        axios.get('http://localhost:9000/users').then(response => {
             if (response.data.length > 0) {
                 this.setState({
                     users:response.data.map(user => user.username),
@@ -59,10 +59,8 @@ export default class CreateExercises extends Component {
 
         console.log(exercise);
 
-        const url = 'https://localhost:9000/excercises/add';
+        const url = 'http://localhost:9000/exercises/add';
         axios.post(url, exercise).then(res => console.log(res.data))
-
-        window.location = '/';
     }
     render() {
         return (
