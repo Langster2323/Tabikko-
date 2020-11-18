@@ -95,6 +95,9 @@ export default class CreateExercises extends Component {
                             onChange={this.onChangeDate} />
                         </div>
                     </div>
+                    <div className="form-group">
+                        <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+                    </div>
                 </form>
             </div>
         )
