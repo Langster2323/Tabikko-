@@ -39,13 +39,13 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/update/:id', (req, res) => {
-    Excercise.findById(req.params.id).then(excercise => {
-        excercise.username = req.body.username;
-        excercise.description = req.body.description;
-        excercise.duration = Number(req.body.duration);
-        excercise.date = Date.parse(req.body.date);
+    Excercise.findById(req.params.id).then(exercises => {
+        exercises.username = req.body.username;
+        exercises.description = req.body.description;
+        exercises.duration = Number(req.body.duration);
+        exercises.date = Date.parse(req.body.date);
 
-        excercise.save()
+        exercises.save()
         .then(() => res.json('Excercise updated!'))
         .catch(err => res.status(400).json('Error: ' + err))
     })
