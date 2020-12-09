@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-export default class CreateUser extends Component {
-    constructor(props) {
-        super();
-        this.state = {
-            username: ''
-        }
+const CreateUser = () => {
+    const [username, setUsername] = useState('')
+
+    const onChangeUserName = (e) => {
+        setUsername(e.target.value)
     }
 
-    onChangeUserName = (e) => {
-        this.setState({
-            username: e.target.value
-        })
-    }
-
-    onSubmit = (e) => {
-        const { username } = this.state;
+    const onSubmit = (e) => {
         e.preventDefault();
 
         const user = {
@@ -28,28 +20,26 @@ export default class CreateUser extends Component {
 
         axios.post(url, user).then(res => console.log(res.data))
 
-        this.setState({
-            username: ''
-        })
+        setUsername('')
     }
-    render() {
         return (
             <div>
                 <h3>Create New User</h3>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={onSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
                         <input 
                         type="text" 
                         required 
                         className="form-control" 
-                        value={this.state.username} 
-                        onChange={this.onChangeUserName}
+                        value={username} 
+                        onChange={onChangeUserName}
                          />
                     </div>
                     <input type="submit" value="Create User" className="btn btn-primary" />
                 </form>
             </div>
         )
-    }
 }
+
+export default CreateUser;
